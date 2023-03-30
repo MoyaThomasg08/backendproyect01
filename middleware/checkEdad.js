@@ -2,7 +2,7 @@ const { gimnasio } = require("../models/gimnasio");
 module.exports = checkEdad = async (req, res, next) => {
   try {
     const user = await gimnasio.find(req.params.edad);
-    if (user.edad > 18 && user.edad < 40) {
+    if (user.params.edad > 18 && user.params.edad < 40) {
       next();
     } else {
       return res.json({

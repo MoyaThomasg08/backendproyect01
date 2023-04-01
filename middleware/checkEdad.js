@@ -14,4 +14,4 @@ const checkEdad = async (req, res, next) => {
   }
 };
 
-module.exports = checkEdad;
+module.exports = { checkEdad };

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const verificacion = new Schema({
+const usuarioSchema = new Schema({
   nombre: {
     type: String,
     required: true,
@@ -33,5 +33,5 @@ const verificacion = new Schema({
     required: true,
   },
 });
-const gimnasio = mongoose.model("gimnasio", verificacion);
-module.exports = { gimnasio };
+const usuario = mongoose.model("usuario", usuarioSchema);
+module.exports = { usuario };

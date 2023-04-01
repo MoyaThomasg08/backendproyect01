@@ -1,4 +1,4 @@
-const { gimnasio } = require("../models/gimnasio");
+const { gimnasio } = require("../models/usuario");
 
 module.exports = checkEdad = async (req, res, next) => {
   try {

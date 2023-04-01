@@ -1,4 +1,4 @@
-const { gimnasio } = require("../models/gimnasio");
+const { gimnasio } = require("../models/usuario");
 module.exports = validarID = async (req, res, next) => {
   try {
     const user = await gimnasio.findById(req.params.id);

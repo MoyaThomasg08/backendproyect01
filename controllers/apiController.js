@@ -1,20 +1,20 @@
-const { gimnasio } = require("../models/gimnasio");
+const { usuario } = require("../models/usuario");
 const { validationResult } = require("express-validator");
 
 const apiController = {
   async users(req, res) {
-    const users = await gimnasio.find();
+    const users = await usuario.find();
     res.json({ users });
   },
   async user(req, res) {
-    const user = await gimnasio.findById();
+    const user = await usuario.findById();
     res.json({ user });
   },
   async create(req, res) {
     try {
       const err = validationResult(req);
       if (err.isEmpty()) {
-        const item = new gimnasio(req.body);
+        const item = new usuario(req.body);
         await item.save();
         res.status(201).json({ item });
       } else {
@@ -28,7 +28,7 @@ const apiController = {
     try {
       const err = validationResult(req);
       if (err.isEmpty()) {
-        await gimnasio.findByIdAndUpdate(req.params.id, req.body);
+        await usuario.findByIdAndUpdate(req.params.id, req.body);
         res
           .status(201)
           .json({ msg: `El usuario de id: ${req.params.id} se actualizo ` });
@@ -38,7 +38,7 @@ const apiController = {
     }
   },
   async delete(req, res) {
-    await gimnasio.findByIdAndDelete(req.params.id);
+    await usuario.findByIdAndDelete(req.params.id);
     res.json({ msg: "El usuario fue eliminado sin problemas" });
   },
 };

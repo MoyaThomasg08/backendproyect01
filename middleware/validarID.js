@@ -1,7 +1,7 @@
-const { gimnasio } = require("../models/usuario");
+const { usuario } = require("../models/usuario");
 module.exports = validarID = async (req, res, next) => {
   try {
-    const user = await gimnasio.findById(req.params.id);
+    const user = await usuario.findById(req.params.id);
     if (user !== null) {
       next();
     } else {

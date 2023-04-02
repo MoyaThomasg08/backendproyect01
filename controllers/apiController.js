@@ -6,9 +6,9 @@ const apiController = {
     const users = await usuario.find();
     res.json({ users });
   },
-  async user(req, res) {
-    const user = await usuario.findById();
-    res.json({ user });
+  async cliente(req, res) {
+    const cliente = await usuario.findById(req.params.id);
+    res.json({ cliente });
   },
   async create(req, res) {
     try {

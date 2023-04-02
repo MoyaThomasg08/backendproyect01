@@ -1,13 +1,14 @@
 const { usuario } = require("../models/usuario");
+
 module.exports = validarID = async (req, res, next) => {
   try {
-    const user = await usuario.findById(req.params.id);
-    if (user !== null) {
-      next();
-    } else {
-      return res.status(501).json({ msg: "el id es invalido" });
+    const cliente = await usuario.findById(req.params.id);
+    if (!cliente) {
+      return res.status(404).json({ msg: "Usuario no encontrado" });
     }
+    next();
   } catch (error) {
-    res.status(501).json(error);
+    console.error(error);
+    res.status(500).json({ msg: "Error del servidor" });
   }
 };

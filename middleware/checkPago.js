@@ -10,6 +10,6 @@ module.exports = checkPago = async (req, res, next) => {
       next();
     }
   } catch (error) {
-    res.status(501).json(error);
+    res.status(500).json({ msg: "Error del servidor" });
   }
 };
